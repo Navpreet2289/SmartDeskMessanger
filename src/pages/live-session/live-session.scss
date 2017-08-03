@@ -1,0 +1,16 @@
+.ios,.md,.wp{
+  page-live-session {
+      .toolbar-background{
+        background:transparent;
+        border-style:none;
+        background-color:color($colors,primary);
+      }
+      .toolbar::after,.header-md::after{
+        background-image:none;
+        background-color:color($colors,primary);
+      }
+      ion-content{
+        background-size:100% auto;
+      }
+  }
+}

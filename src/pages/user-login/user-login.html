@@ -1,0 +1,19 @@
+<ion-content padding>
+
+  <div text-center><img src="assets/images/sd-cover.png" width="300" ></div>
+
+    <ion-list no-lines padding-top>
+      <ion-item>
+        <ion-input type="text" placeholder="Username"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="password" placeholder="Password"></ion-input>
+      </ion-item>
+    </ion-list>
+    <button ion-button block round class="white-border" (click)="nextPage()">Login</button>
+
+    <div padding-top>
+      <button ion-button block color="light" clear (click)="forgotPasswordPage();">Forgot Password?</button>
+    </div>
+
+</ion-content>

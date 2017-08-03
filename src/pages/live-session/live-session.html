@@ -1,0 +1,18 @@
+<ion-header >
+  <ion-navbar>
+    <ion-title>Messanger</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar class="searchbar" (input)="getItems($event)"></ion-searchbar>
+  <ion-list>
+    <ion-item no-lines *ngFor="let m of messages" (click)="goMessageDetail(m.sender, m.profile_img, m.last_message)">
+      <ion-avatar item-left>
+        <img [src]="m.profile_img">
+      </ion-avatar>
+      <h2 style="font-weight: bold">{{ m.sender }}</h2>
+      <p>{{ m.last_message }} <ion-note item-right style="padding-left: 2px">{{ m.time }}</ion-note></p>
+    </ion-item>
+  </ion-list>
+</ion-content>

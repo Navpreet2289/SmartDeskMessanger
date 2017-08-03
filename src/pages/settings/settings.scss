@@ -1,0 +1,23 @@
+.ios,.md,.wp{
+  page-settings {
+    .toolbar-background{
+      background:transparent;
+      border-style:none;
+      background-color:color($colors,primary);
+    }
+    .toolbar::after,.header-md::after{
+      background-image:none;
+      background-color:color($colors,primary);
+    }
+    ion-content{
+      background-size:100% auto;
+    }
+    .info-text {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .custom-hr {
+      height: 3px;
+    }
+  }
+}
