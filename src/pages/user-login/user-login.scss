@@ -6,7 +6,18 @@
         background-color:color($colors,primary);
         background-size:100% auto;
       }
+      .scroll-content{padding: 0px !important;}
+      .input-div{
+        position: absolute;
+        bottom: 10%;
+        width: 90%;
+        display: block;
+        margin-left: 5%;
+      }
       .item{border:$border-color 1px solid !important; margin-bottom:10px;}
       .white-border{border: $rprimary 1px solid;}
+      .title-image{margin-top: 40%;}
+      .content-center{text-align: center;display: flex;justify-content: center;}
+      .forgot-button{width: 150px;}
   }
 }
