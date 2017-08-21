@@ -13,9 +13,12 @@
         height: 50%;
         width: 90%;
         display: block;
-        margin-left: 5%;
+        left: 0;
+        right: 0;
+        margin: auto;
+        max-width: 400px;
       }
-      .item{border:$border-color 1px solid !important; margin-bottom:10px;}
+      .item{border-bottom:$rprimary 1px solid !important; margin-bottom:10px;background: none; color: $rprimary;}
       .white-border{border: $rprimary 1px solid;}
       .title-image{
         position: relative;
@@ -29,8 +32,9 @@
       right: 0;
       left: 0;
     }
+    .button-block:hover{background-color: rgba(249, 249, 249, 0.17);}
     .content-center{text-align: center;display: flex;justify-content: center;}
-    .forgot-button{width: 150px;}
+    .forgot-button{width: 200px;}
     .token_label{font-size: 10px;color: white;}
   }
 }

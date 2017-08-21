@@ -1,6 +1,6 @@
 <ion-header >
   <ion-navbar>
-    <ion-title>Messanger</ion-title>
+    <ion-title>Account settings</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -24,11 +24,20 @@
   <div padding-top margin-top>
     <h4 no-margin no-padding class="info-text">About</h4>
     <hr class="custom-hr" color="gray">
-    <ion-item>Help / Documentation</ion-item>
-    <ion-item>Contacct Support</ion-item>
+    <ion-item tappable (click)="gotoHelp()">
+      Help / Documentation
+      <ion-icon name="arrow-forward" item-right=""></ion-icon>
+    </ion-item>
+    <ion-item tappable (click)="gotoSupport()">
+      Contact Support
+      <ion-icon name="arrow-forward" item-right=""></ion-icon>
+    </ion-item>
   </div>
   <div padding-top margin-top>
     <hr class="custom-hr" color="gray">
-    <ion-item (click)="logout()">Log Out</ion-item>
+    <ion-item tappable (click)="logout()">
+      Log out from your account
+      <ion-icon name="arrow-forward" item-right=""></ion-icon>
+    </ion-item>
   </div>
 </ion-content>

@@ -1,20 +1,22 @@
-<ion-content padding>
-    <div text-center class="title-image"><img src="assets/images/sd-cover.png" width="300" ></div>
+<ion-content scroll="true" padding>
+      <div text-center class="title-image"><img src="assets/images/sd-cover.png" width="300" ></div>
       <div class="input-div">
         <form [formGroup]="loginForm" (ngSubmit)="doLogin($event)">
           <ion-list no-lines padding-top>
             <ion-item>
-              <ion-input formControlName="username" type="text" placeholder="Username"></ion-input>
+              <ion-label floating>Input your username</ion-label>
+              <ion-input formControlName="username" type="text" autocapitalize="none"></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input formControlName="password" type="password" placeholder="Password"></ion-input>
+              <ion-label floating>Input your password</ion-label>
+              <ion-input formControlName="password" type="password"></ion-input>
             </ion-item>
           </ion-list>
           <button ion-button block round class="white-border" [disabled]="!loginForm.valid" type="submit">Login</button>
         </form>
 
         <div padding-top class="content-center">
-          <button ion-button block color="light" class="forgot-button" clear (click)="forgotPasswordPage();">Forgot Password?</button>
+          <button ion-button block color="light" class="forgot-button" clear (click)="forgotPasswordPage();">Forgot your password?</button>
         </div>
       </div>
 </ion-content>

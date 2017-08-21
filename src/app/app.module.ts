@@ -17,6 +17,7 @@ import { MessageDetail } from '../pages/message-detail/message-detail';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Keyboard } from "ionic-angular";
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { AppConfig } from './app.config';
 
@@ -36,7 +37,8 @@ import { AppConfig } from './app.config';
     ReactiveFormsModule,
     HttpModule,
     IonicModule.forRoot(MyApp, {
-        tabsPlacement: 'top',
+        tabsPlacement: 'bottom',
+        platforms: { ios: { scrollAssist: false, autoFocusAssist: false } }
       }
     ),
     IonicStorageModule.forRoot()
@@ -55,6 +57,7 @@ import { AppConfig } from './app.config';
   providers: [
     StatusBar,
     SplashScreen,
+    Keyboard,
     AppConfig,
     AppVersion,
     Device,

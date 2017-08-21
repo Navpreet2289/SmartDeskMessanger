@@ -1,9 +1,15 @@
 <ion-header >
   <ion-navbar>
-    <ion-title>Messanger</ion-title>
+    <ion-title>Archived sessions</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-searchbar class="searchbar" (input)="getItems($event)"></ion-searchbar>
+  <div *ngIf="sessions.length">
+    <ion-searchbar class="searchbar" (input)="getItems($event)"></ion-searchbar>
+  </div>
+  <div *ngIf="!sessions.length" class="empty-area">
+    <ion-icon name="archive"></ion-icon>
+    <ion-label>Sadly, you do not have any archived chat sessions.</ion-label>
+  </div>
 </ion-content>

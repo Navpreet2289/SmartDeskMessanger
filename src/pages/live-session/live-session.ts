@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, NavParams } from 'ionic-angular';
 import { MessageDetail } from '../message-detail/message-detail';
+import {FormControl} from "@angular/forms";
+import 'rxjs/add/operator/debounceTime';
 
 @Component({
   selector: 'page-live-session',
@@ -9,58 +11,76 @@ import { MessageDetail } from '../message-detail/message-detail';
 export class LiveSession {
 
   // You can get this data from Smartdesk API. This is a dumb data for being an example.
-  public messages = [
+  public sessions = [
     {
       id: 1,
-      profile_img: 'https://avatars1.githubusercontent.com/u/918975?v=3&s=120',
-      sender: 'candelibas',
+      sender: 'candelibas@gmail.com',
+      av: 'CG',
       last_message: 'How you doin?',
       time: '6h'
     },
     {
       id: 2,
-      profile_img: 'https://pbs.twimg.com/profile_images/726955832785571840/8OxhcDxl_400x400.jpg',
-      sender: 'maxlynch',
+      sender: 'maxlynch@outlook.com',
+      av: 'MO',
       last_message: 'LOL. Ionic in 2017',
       time: '11h'
     },
     {
       id: 3,
-      profile_img: 'http://ionicframework.com/dist/preview-app/www/assets/img/sarah-avatar.png.jpeg',
-      sender: 'ashleyosama',
+      sender: 'ashleyosama@yahoo.com',
+      av: 'AY',
       last_message: 'Wanna hang out?',
       time: '1d'
     },
     {
       id: 4,
-      profile_img: 'https://pbs.twimg.com/profile_images/479090794058379264/84TKj_qa_400x400.jpeg',
-      sender: 'adam_bradley',
+      sender: 'adam_bradley@yandex.com',
+      av: 'AY',
       last_message: 'Typescript <3 me',
       time: '3d'
     },
     {
       id: 5,
-      profile_img: 'https://avatars1.githubusercontent.com/u/1024025?v=3&s=120',
-      sender: 'linus_torvalds',
+      sender: 'linus_torvalds@zoho.com',
+      av: 'LZ',
       last_message: 'I am installing Ubuntu right now.',
       time: '6d'
     }
-
   ];
+  public items = [];
+  public searchTerm: string = '';
+  public searchControl: FormControl;
+  public searching: any = false;
+  public initial: any = true; // true : show search bar and messages list, false: hide everything
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+    this.searchControl = new FormControl();
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad UserLogin');
+    console.log('ionViewDidLoad Live Sessions');
+    this.items = this.filterSessions(this.searchTerm);
+    if(!this.items.length)
+      this.initial = false;
+    this.searchControl.valueChanges.debounceTime(700).subscribe(search => {
+      this.searching = false;
+      this.items = this.filterSessions(this.searchTerm);
+    });
   }
 
-  getItems(){
-
+  onSearchInput(){
+    this.searching = true;
   }
 
-  goMessageDetail(sender:string, profile_img:string, last_message:string) {
-    this.navCtrl.push(MessageDetail, { sender: sender, profile_img: profile_img, last_message: last_message});
+  filterSessions(searchTerm){
+    return this.sessions.filter((session) => {
+      return session.sender.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
+    });
+  }
+
+  goMessageDetail(sender:string, av:string, last_message:string) {
+    this.navCtrl.push(MessageDetail, { sender: sender, av: av, last_message: last_message});
   }
 
 }

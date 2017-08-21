@@ -9,36 +9,39 @@
 
 <ion-content padding>
 
-    <ion-note><p text-center no-padding no-margin>April 1, 7:29 PM</p></ion-note>
+    <ion-note><p text-center no-padding no-margin>Monday, August 14th</p></ion-note>
 
     <!-- Sender -->
     <ion-item no-lines no-margin no-padding text-wrap>
       <ion-avatar item-left>
-        <img [src]="profile_img">
+        <div>{{av}}</div>
       </ion-avatar>
-      <div class="chatbox">LOL. Still using Ionic instead of native techs? It's 2017 mate.</div>
+      <div class="chatbox chatbox-left message-bubble">LOL. Still using Ionic instead of native techs? It's 2017 mate.</div>
+      <ion-note class="note note-ios time-right"><p no-margin padding-right text-right>12:54 PM</p></ion-note>
     </ion-item>
 
     <!-- Me -->
     <ion-item no-lines no-margin no-padding text-wrap>
       <ion-avatar item-right>
-        <img src="https://avatars1.githubusercontent.com/u/918975?v=3&s=460">
+        <div>LZ</div>
       </ion-avatar>
-      <div margin-left class="chatbox chatbox-right">You are doomed bruh! ;)</div>
+      <div margin-left class="chatbox chatbox-right message-bubble">You are doomed bruh! You are doomed bruh! ;)</div>
+      <ion-note class="note note-ios time-left"><p no-margin padding-left text-left>01:15 PM</p></ion-note>
     </ion-item>
 
 
     <ion-item no-lines no-margin no-padding text-wrap>
       <ion-avatar item-left>
-        <img [src]="profile_img">
+        <div>{{av}}</div>
       </ion-avatar>
-      <div class="chatbox">{{ last_message }}</div>
+      <div class="chatbox chatbox-left message-bubble">{{ last_message }}</div>
+      <ion-note class="note note-ios time-right"><p no-margin padding-right text-right>19:54 PM</p></ion-note>
     </ion-item>
 
     <!-- Heart icon -->
     <ion-item no-lines no-margin no-padding text-wrap *ngIf="send_like_icon" item-right>
       <ion-avatar item-right>
-        <img src="https://avatars1.githubusercontent.com/u/918975?v=3&s=460">
+        <div>AY</div>
       </ion-avatar>
       <div text-right [ngClass]="{'like-msg-btn': likeBtnVisible }">
         <ion-icon name="heart" [ngClass]="{'like-btn': likeBtnVisible, 'heart-size': true }" color="danger"></ion-icon>
@@ -49,11 +52,11 @@
 <!-- Footer -->
 <ion-footer>
   <ion-toolbar>
-    <ion-buttons start left>
+    <ion-buttons start right>
       <button ion-button icon-right color="black" (click)="sendMessage()">
         <ion-icon name="send"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-input type="text" value=""></ion-input>
+    <ion-input type="text" value="" autocapitalize="none"></ion-input>
   </ion-toolbar>
 </ion-footer>

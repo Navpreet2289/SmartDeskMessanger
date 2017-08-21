@@ -51,7 +51,10 @@ export class UserLogin {
       this.nextPage();
     }, (err) => {
       this.loading.dismiss();
-      this.presentToast(JSON.parse(err._body).statusDesc);
+      let err_msg = JSON.parse(err._body).statusDesc;
+      if(err_msg === 'login failure user was not found')
+          err_msg = 'The credentials you entered are wrong.';
+      this.presentToast(err_msg);
     });
   }
 
@@ -59,8 +62,8 @@ export class UserLogin {
 
   forgotPasswordPage(){
     let alert = this.alertCtrl.create({
-      title: 'Password Forgotten?',
-      message: 'Please contact your superior who has access to the Smartdesk account.',
+      title: 'Reset your password',
+      message: 'You can delete accounts & create new ones from the Smartdesk web app.',
       buttons: ['OK']
     });
     alert.present();

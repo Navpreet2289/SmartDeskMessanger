@@ -1,18 +1,30 @@
 <ion-header >
   <ion-navbar>
-    <ion-title>Messanger</ion-title>
+    <ion-title>Live sessions</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-searchbar class="searchbar" (input)="getItems($event)"></ion-searchbar>
-  <ion-list>
-    <ion-item no-lines *ngFor="let m of messages" (click)="goMessageDetail(m.sender, m.profile_img, m.last_message)">
-      <ion-avatar item-left>
-        <img [src]="m.profile_img">
-      </ion-avatar>
-      <h2 style="font-weight: bold">{{ m.sender }}</h2>
-      <p>{{ m.last_message }} <ion-note item-right style="padding-left: 2px">{{ m.time }}</ion-note></p>
-    </ion-item>
-  </ion-list>
+  <div *ngIf="initial">
+    <ion-searchbar [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="onSearchInput()"></ion-searchbar>
+
+    <div *ngIf="searching" class="spinner-container">
+      <ion-spinner></ion-spinner>
+    </div>
+
+    <ion-list *ngIf="items.length">
+      <ion-item tappable no-lines *ngFor="let item of items" (click)="goMessageDetail(item.sender, item.av, item.last_message)">
+        <ion-avatar item-left>
+          <div class="">{{item.av}}</div>
+        </ion-avatar>
+        <h2 style="font-weight: bold">{{ item.sender }}</h2>
+        <p>{{ item.last_message }} <ion-note item-right style="padding-left: 2px">{{ item.time }}</ion-note></p>
+      </ion-item>
+    </ion-list>
+    <p *ngIf="!items.length">There is no search results.</p>
+  </div>
+  <div *ngIf="!initial" class="empty-area">
+    <ion-icon name="chatboxes"></ion-icon>
+    <ion-label>There is no live chat sessions. <br />You can relax :-)</ion-label>
+  </div>
 </ion-content>

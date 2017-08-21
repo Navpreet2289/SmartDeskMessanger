@@ -31,19 +31,22 @@ $colors: (
   dark:       #000
 );
 
-$size_extrasmall:1.0rem;
+$size_extrasmall:1.1rem;
 $size_small:1.3rem;
-$size_normal:1.3rem;
+$size_normal:1.5rem;
 $size_large:1.8rem;
 $size_extralarge:2.1rem;
+$extra_icon_size: 7em;
 
 $border-color:#ccc;
 
 $rprimary : #fff;
 $rsecondary: #C9C7D3;
+$skycolor: #e6effb;
 $pholder:#666;
 $border:#ccc;
 $button:#0d47a1;
+$static: #888888;
 // Manage toolbar color
 $toolbar-background:color($colors, primary);
 

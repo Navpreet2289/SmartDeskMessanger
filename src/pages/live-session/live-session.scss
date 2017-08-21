@@ -9,8 +9,57 @@
         background-image:none;
         background-color:color($colors,primary);
       }
-      ion-content{
+      ion-content {
         background-size:100% auto;
+        ion-item {
+          p {
+            text-align: left;
+          }
+        }
+        p {
+          text-align: center;
+        }
       }
+
+    .empty-area {
+      position: absolute;
+      margin: auto;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      height: 50%;
+      width: 90%;
+      text-align: center;
+      padding: 5%;
+
+      ion-icon {
+        font-size: $extra_icon_size;
+        color: color($colors,primary);
+      }
+      ion-label {
+        font-size: $size_large;
+        white-space: initial;
+      }
+    }
+
+    ion-avatar {
+      div {
+        background: #2e507d;
+        color: white;
+        font-size: 18px;
+        text-align: center;
+        border-radius: 50%;
+        min-width: 36px;
+        min-height: 36px;
+        padding-top: 10px;
+      }
+    }
+
+    .spinner-container {
+      width: 100%;
+      text-align: center;
+      padding: 10px;
+    }
   }
 }

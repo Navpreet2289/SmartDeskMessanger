@@ -1,19 +1,84 @@
 page-message-detail {
   .chatbox {
-    border: 1px solid $rsecondary;
     border-radius: 10px;
     padding: 9px;
+    background-color: $skycolor;
   }
 
   .chatbox-right {
-    background-color: #EEEEEE;
+    background-color: color($colors, primary);
+    color: color($colors, light)
   }
 
   .heart-size {
     font-size: 34px;
   }
+
   .input{
     border-bottom: 1px solid $rprimary;
     color: $rprimary;
+  }
+
+  ion-icon{
+    padding-left: .2em !important;
+    padding-right: .2em;
+  }
+
+  ion-toolbar{
+    padding-right: 0px !important;
+  }
+
+  ion-avatar{
+    div{
+      background: #2e507d;
+      color: white;
+      font-size: 18px;
+      text-align: center;
+      border-radius: 50%;
+      min-width: 36px;
+      min-height: 36px;
+      padding-top: 10px;
+    }
+  }
+
+  .message-bubble:before {
+    position: absolute;
+    left: 64px;
+    content: '';
+    width: 0;
+    height: 0;
+    border-width: 7px 14px 7px 0;
+    border-style: solid;
+    border-color: transparent #f8f8f8;
+  }
+
+  .chatbox-right.message-bubble:before {
+    left: auto;
+    right: 60px;
+    border-width: 7px 0 7px 14px;
+    border-color: transparent color($colors, primary);
+  }
+
+  .chatbox-left.message-bubble:before {
+    left: 42px;
+    right: auto;
+    border-width: 7px 14px 7px 0px;
+    border-color: transparent $skycolor;
+  }
+
+  .time-right{
+    position: absolute;
+    right: 0;
+    p{
+      font-size: $size_extrasmall;
+    }
+  }
+
+  .time-left{
+    position: absolute;
+    left: 0;
+    p{
+      font-size: $size_extrasmall;
+    }
   }
 }
