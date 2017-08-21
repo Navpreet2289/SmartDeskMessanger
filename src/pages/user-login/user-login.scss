@@ -1,5 +1,40 @@
 .ios,.md,.wp{
   page-user-login {
+      #splash-overlay {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 100000;
+        width: 100%;
+        background-color: color($colors,primary);
+        animation: fadeOutAtEnd 5s;
+      }
+
+      .splash {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .logo{
+        position: absolute;
+        height: 40%;
+        top: 10%;
+        width: 100%;
+      }
+
+      .loading {
+        padding: 5px;
+        width: 80px;
+        height: auto;
+        margin: 10px;
+        line-height: 20px;
+        text-align: center;
+      }
       .toolbar-background{ background:transparent; border-style:none;}
       .toolbar::after,.header-md::after{ background-image:none;}
       ion-content{
@@ -24,17 +59,17 @@
         position: relative;
         height: 50%;
       }
-    .title-image img{
-      position: absolute;
-      margin: auto;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-    }
-    .button-block:hover{background-color: rgba(249, 249, 249, 0.17);}
-    .content-center{text-align: center;display: flex;justify-content: center;}
-    .forgot-button{width: 200px;}
-    .token_label{font-size: 10px;color: white;}
+      .title-image img, .logo img {
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+      }
+      .button-block:hover{background-color: rgba(249, 249, 249, 0.17);}
+      .content-center{text-align: center;display: flex;justify-content: center;}
+      .forgot-button{width: 200px;}
+      .token_label{font-size: 10px;color: white;}
   }
 }

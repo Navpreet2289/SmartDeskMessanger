@@ -24968,6 +24968,49 @@ page-message-detail .time-left p {
   padding-left: 0px;
 }
 
+.ios page-user-login #splash-overlay, .md page-user-login #splash-overlay, .wp page-user-login #splash-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100000;
+  width: 100%;
+  background-color: #2e507d;
+  -webkit-animation: fadeOutAtEnd 5s;
+  animation: fadeOutAtEnd 5s;
+}
+
+.ios page-user-login .splash, .md page-user-login .splash, .wp page-user-login .splash {
+  height: 100%;
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.ios page-user-login .logo, .md page-user-login .logo, .wp page-user-login .logo {
+  position: absolute;
+  height: 40%;
+  top: 10%;
+  width: 100%;
+}
+
+.ios page-user-login .loading, .md page-user-login .loading, .wp page-user-login .loading {
+  padding: 5px;
+  width: 80px;
+  height: auto;
+  margin: 10px;
+  line-height: 20px;
+  text-align: center;
+}
+
 .ios page-user-login .toolbar-background, .md page-user-login .toolbar-background, .wp page-user-login .toolbar-background {
   background: transparent;
   border-style: none;
@@ -25014,7 +25057,7 @@ page-message-detail .time-left p {
   height: 50%;
 }
 
-.ios page-user-login .title-image img, .md page-user-login .title-image img, .wp page-user-login .title-image img {
+.ios page-user-login .title-image img, .ios page-user-login .logo img, .md page-user-login .title-image img, .md page-user-login .logo img, .wp page-user-login .title-image img, .wp page-user-login .logo img {
   position: absolute;
   margin: auto;
   top: 0;

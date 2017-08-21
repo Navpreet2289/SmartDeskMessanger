@@ -15,6 +15,7 @@ export class UserLogin {
   private loading: any;
   private token: string;
   private data: any;
+  private splash = true;
   public loginForm = this.fb.group({
     username: ["", Validators.required],
     password: ["", Validators.required],
@@ -37,6 +38,10 @@ export class UserLogin {
       .then(data => {
         this.token = data;
       });
+
+    setTimeout(() => {
+      this.splash = false;
+    }, 5000);
     console.log('ionViewDidLoad UserLogin');
   }
 
