@@ -7,7 +7,7 @@ import { AppVersion } from '@ionic-native/app-version';
 import { Device } from '@ionic-native/device';
 
 import { UserLogin } from '../pages/user-login/user-login';
-import { TabsPage } from '../pages/tabs/tabs';
+// import { TabsPage } from '../pages/tabs/tabs';
 
 @Component({
   templateUrl: 'app.html'
@@ -28,13 +28,14 @@ export class MyApp {
     private device: Device
   ) {
     this.initializeApp();
-    this.storage.get('access_token')
-      .then(data => {
-        if(data == null)
-          this.rootPage = UserLogin;
-        else
-          this.rootPage = TabsPage;
-      });
+    this.rootPage = UserLogin;
+    // this.storage.get('access_token')
+    //   .then(data => {
+    //     if(data == null)
+    //       this.rootPage = UserLogin;
+    //     else
+    //       this.rootPage = TabsPage;
+    //   });
   }
 
   initializeApp() {
