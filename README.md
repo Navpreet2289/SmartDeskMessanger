@@ -1,5 +1,5 @@
 # SmartDeskMessanger
-This is messanger application which is based on ionic 3.7 for SmartDesk
+This is messanger application which is based on ionic 2 for SmartDesk
 
 ## Install Environment
 NPM: 3.10.10
