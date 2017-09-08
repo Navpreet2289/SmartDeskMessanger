@@ -1,13 +1,14 @@
 import { Component, ViewChild } from '@angular/core';
-import { Platform, MenuController, Nav } from 'ionic-angular';
+import { Platform, MenuController, Nav, ModalController} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+// import { SplashScreen } from '@ionic-native/splash-screen';
 import { Storage } from '@ionic/storage';
 import { AppVersion } from '@ionic-native/app-version';
 import { Device } from '@ionic-native/device';
 
 import { UserLogin } from '../pages/user-login/user-login';
-// import { TabsPage } from '../pages/tabs/tabs';
+import { SplashPage } from "../pages/splash/splash";
+import { TabsPage } from '../pages/tabs/tabs';
 
 @Component({
   templateUrl: 'app.html'
@@ -22,28 +23,29 @@ export class MyApp {
     public platform: Platform,
     public menu: MenuController,
     public statusBar: StatusBar,
-    public splashScreen: SplashScreen,
     private storage: Storage,
     private appVersion: AppVersion,
-    private device: Device
+    private device: Device,
+    public modalCtrl: ModalController
   ) {
     this.initializeApp();
-    this.rootPage = UserLogin;
-    // this.storage.get('access_token')
-    //   .then(data => {
-    //     if(data == null)
-    //       this.rootPage = UserLogin;
-    //     else
-    //       this.rootPage = TabsPage;
-    //   });
+    this.storage.get('access_token')
+      .then(data => {
+        if(data == null)
+          this.rootPage = UserLogin;
+        else
+          this.rootPage = TabsPage;
+      });
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
+      this.statusBar.styleLightContent();
+  ﻿    let splash = this.modalCtrl.create(SplashPage);
+      splash.present();
+
       if (this.platform.is('mobileweb') || this.platform.is('core')) {
         this.storage.set('client_token', '00A407EF6F2149AE94B08F9E60CC561F2017-08-06T15:06:45.965Z');
       }else {

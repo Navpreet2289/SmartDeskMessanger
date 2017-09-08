@@ -2,6 +2,11 @@
 
   <ion-navbar color="white">
     <ion-title>{{ sender }}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-right color="black" (click)="openModal()">
+        <ion-icon name="information" class="information"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -17,7 +22,7 @@
         <div>{{av}}</div>
       </ion-avatar>
       <div class="chatbox chatbox-left message-bubble">LOL. Still using Ionic instead of native techs? It's 2017 mate.</div>
-      <ion-note class="note note-ios time-right"><p no-margin padding-right text-right>12:54 PM</p></ion-note>
+      <ion-note padding-right class="note note-ios time-right"><p no-margin padding-right text-right>12:54 PM</p></ion-note>
     </ion-item>
 
     <!-- Me -->
@@ -26,7 +31,7 @@
         <div>LZ</div>
       </ion-avatar>
       <div margin-left class="chatbox chatbox-right message-bubble">You are doomed bruh! You are doomed bruh! ;)</div>
-      <ion-note class="note note-ios time-left"><p no-margin padding-left text-left>01:15 PM</p></ion-note>
+      <ion-note padding-left class="note note-ios time-left"><p no-margin padding-left text-left>01:15 PM</p></ion-note>
     </ion-item>
 
 
@@ -35,7 +40,7 @@
         <div>{{av}}</div>
       </ion-avatar>
       <div class="chatbox chatbox-left message-bubble">{{ last_message }}</div>
-      <ion-note class="note note-ios time-right"><p no-margin padding-right text-right>19:54 PM</p></ion-note>
+      <ion-note padding-right class="note note-ios time-right"><p no-margin padding-right text-right>19:54 PM</p></ion-note>
     </ion-item>
 
     <!-- Heart icon -->

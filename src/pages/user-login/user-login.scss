@@ -19,22 +19,6 @@
         align-items: center;
         justify-content: center;
       }
-
-      .logo{
-        position: absolute;
-        height: 40%;
-        top: 10%;
-        width: 100%;
-      }
-
-      .loading {
-        padding: 5px;
-        width: 80px;
-        height: auto;
-        margin: 10px;
-        line-height: 20px;
-        text-align: center;
-      }
       .toolbar-background{ background:transparent; border-style:none;}
       .toolbar::after,.header-md::after{ background-image:none;}
       ion-content{

@@ -2,7 +2,10 @@ import { Component } from '@angular/core';
 import { NavController, AlertController, NavParams } from 'ionic-angular';
 import { MessageDetail } from '../message-detail/message-detail';
 import {FormControl} from "@angular/forms";
+import { Storage } from '@ionic/storage';
+import { MessagesServiceProvider } from "../../providers";
 import 'rxjs/add/operator/debounceTime';
+import * as moment from 'moment';
 
 @Component({
   selector: 'page-live-session',
@@ -50,32 +53,66 @@ export class LiveSession {
   ];
   public items = [];
   public searchTerm: string = '';
+  private access_token: string;
   public searchControl: FormControl;
   public searching: any = false;
   public initial: any = true; // true : show search bar and messages list, false: hide everything
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public alertCtrl: AlertController,
+    private storage: Storage,
+    public messagesService: MessagesServiceProvider,
+  ) {
     this.searchControl = new FormControl();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad Live Sessions');
     this.items = this.filterSessions(this.searchTerm);
+
     if(!this.items.length)
       this.initial = false;
+
     this.searchControl.valueChanges.debounceTime(700).subscribe(search => {
       this.searching = false;
       this.items = this.filterSessions(this.searchTerm);
     });
+
+    this.storage.get('access_token')
+      .then(data => {
+        this.access_token = data;
+        this.getTodayClients();
+      });
   }
 
   onSearchInput(){
     this.searching = true;
   }
 
+  removeItem(item){
+    for(let i = 0; i < this.items.length; i ++) {
+      if(this.items[i] == item){
+        this.items.splice(i, 1);
+      }
+    }
+  }
+
   filterSessions(searchTerm){
     return this.sessions.filter((session) => {
       return session.sender.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
+    });
+  }
+
+  getTodayClients(){
+    // by calling /checkclient api, this will get all live clients of Today.
+    let today = moment().format('YYYY-MM-DD hh:mm:ss');
+    console.log(today);
+    this.messagesService.checkClient(today, this.access_token).then((result) => {
+
+    }, (err) => {
+
     });
   }
 

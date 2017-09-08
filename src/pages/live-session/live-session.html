@@ -13,18 +13,26 @@
     </div>
 
     <ion-list *ngIf="items.length">
-      <ion-item tappable no-lines *ngFor="let item of items" (click)="goMessageDetail(item.sender, item.av, item.last_message)">
-        <ion-avatar item-left>
-          <div class="">{{item.av}}</div>
-        </ion-avatar>
-        <h2 style="font-weight: bold">{{ item.sender }}</h2>
-        <p>{{ item.last_message }} <ion-note item-right style="padding-left: 2px">{{ item.time }}</ion-note></p>
-      </ion-item>
+      <ion-item-sliding *ngFor="let item of items">
+
+        <ion-item tappable no-lines (click)="goMessageDetail(item.sender, item.av, item.last_message)">
+          <ion-avatar item-left>
+            <div class="">{{item.av}}</div>
+          </ion-avatar>
+          <h2 style="font-weight: bold">{{ item.sender }}</h2>
+          <p>{{ item.last_message }} <ion-note item-right style="padding-left: 2px">{{ item.time }}</ion-note></p>
+        </ion-item>
+
+        <ion-item-options>
+          <button ion-button color="danger" (click)="removeItem(item)"><ion-icon name="trash"></ion-icon> Delete</button>
+        </ion-item-options>
+      </ion-item-sliding>
+
     </ion-list>
-    <p *ngIf="!items.length">There is no search results.</p>
+    <p *ngIf="!items.length">There is no search result.</p>
   </div>
   <div *ngIf="!initial" class="empty-area">
     <ion-icon name="chatboxes"></ion-icon>
-    <ion-label>There is no live chat sessions. <br />You can relax :-)</ion-label>
+    <ion-label>All good, nobody needs you :-)</ion-label>
   </div>
 </ion-content>
