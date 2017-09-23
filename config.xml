@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.ionicframework.smartdesk" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>SDM</name>
+    <name>Smartdesk</name>
     <description>SmartDesk Live Chat Messanger Application</description>
     <author email="goldbyol@outlook.com" href="http://ionicframework.com/">Hybrid App Developer</author>
     <content src="index.html" />
@@ -69,14 +69,12 @@
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="19" />
     <preference name="BackupWebStorage" value="none" />
-    <preference name="SplashMaintainAspectRatio" value="true" />
-    <preference name="FadeSplashScreenDuration" value="300" />
-    <preference name="SplashShowOnlyFirstTime" value="false" />
-    <preference name="SplashScreen" value="screen" />
-    <preference name="AutoHideSplashScreen" value="false" />
+    <preference name="SplashScreen" value="none" />
     <preference name="SplashScreenDelay" value="0" />
-    <preference name="orientation" value="portrait" />
+    <preference name="FadeSplashScreenDuration" value="300" />
+    <preference name="AutoHideSplashScreen" value="false" />
     <preference name="ShowSplashScreenSpinner" value="false" />
+    <preference name="orientation" value="portrait" />
     <preference name="fullscreen" value="true" />
     <feature name="StatusBar">
         <param name="ios-package" onload="true" value="CDVStatusBar" />

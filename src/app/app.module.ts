@@ -14,11 +14,12 @@ import { LiveSession } from '../pages/live-session/live-session';
 import { PastSession } from '../pages/past-session/past-session';
 import { Settings } from '../pages/settings/settings';
 import { MessageDetail } from '../pages/message-detail/message-detail';
+﻿import { SplashPage } from '../pages/splash/splash';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Keyboard } from "ionic-angular";
-import { AuthServiceProvider } from '../providers/auth-service/auth-service';
+import { AuthServiceProvider, MessagesServiceProvider } from '../providers';
 import { AppConfig } from './app.config';
 
 @NgModule({
@@ -31,6 +32,7 @@ import { AppConfig } from './app.config';
     PastSession,
     Settings,
     MessageDetail,
+    SplashPage
   ],
   imports: [
     BrowserModule,
@@ -53,6 +55,7 @@ import { AppConfig } from './app.config';
     PastSession,
     Settings,
     MessageDetail,
+    SplashPage,
   ],
   providers: [
     StatusBar,
@@ -62,7 +65,8 @@ import { AppConfig } from './app.config';
     AppVersion,
     Device,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthServiceProvider
+    AuthServiceProvider,
+    MessagesServiceProvider
   ]
 })
 export class AppModule {}

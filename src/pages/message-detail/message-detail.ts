@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ActionSheetController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -17,7 +17,7 @@ export class MessageDetail {
 
   public messages = []; // You can get all the chat details from your API
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public actionSheetCtrl: ActionSheetController) {
     this.sender = this.navParams.get('sender');
     this.av = this.navParams.get('av');
     this.last_message = this.navParams.get('last_message');
@@ -38,6 +38,28 @@ export class MessageDetail {
     }
       // Allow heart effect
       this.likeBtnVisible = !this.likeBtnVisible;
+  }
+
+  openModal() {
+    console.log('Open Modal');
+    let actionsheet = this.actionSheetCtrl.create({
+      title: 'Choose Plan',
+      buttons: [
+        {
+          text: 'Send mail to user',
+          handler: () => {
+            console.log("Send mail to user");
+          }
+        },
+        {
+          text: 'Copy mail to clipboard',
+          handler: () => {
+            console.log("Copy mail to clipboard");
+          }
+        }
+      ]
+    });
+    actionsheet.present();
   }
 
 }

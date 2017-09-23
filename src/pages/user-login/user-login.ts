@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { NavController, AlertController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-import { AuthServiceProvider } from "../../providers/auth-service/auth-service";
+import { AuthServiceProvider } from "../../providers";
 
 import { TabsPage } from '../tabs/tabs';
 
